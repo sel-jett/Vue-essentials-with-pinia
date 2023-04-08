@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    A site of events to make a better world
   </div>
 </template>
 
