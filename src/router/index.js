@@ -11,6 +11,7 @@ const router = createRouter({
       path: '/',
       name: 'event-list',
       component: EventListView,
+      props: route => ({ page: parseInt(route.query.page) || 1 })
     },
     {
       path: '/about',
