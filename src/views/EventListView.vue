@@ -17,7 +17,6 @@ export default {
     }
   },
   beforeRouteEnter(routeTo, routeFrom, next) {
-   nprogress.start()
      EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
      .then(response => {
       next(comp => { 
@@ -28,13 +27,9 @@ export default {
       .catch(() => {
         next({ name: 'networkError'})
       })
-      .finally(() => {
-        nprogress.done()
-      })
     },
 
 beforeRouteUpdate(routeTo) {
-   nprogress.start()
      EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
      .then(response => {
         this.events = response.data
@@ -42,9 +37,6 @@ beforeRouteUpdate(routeTo) {
       })
       .catch(() => {
         return { name: 'networkError'}
-      })
-      .finally(() => {
-        nprogress.done()
       })
     },
 
