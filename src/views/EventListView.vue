@@ -1,7 +1,7 @@
 <script>
 import EventCard from '@/components/EventCard.vue'
 import EventService from '../services/EventService'
-import { watchEffect,computed } from 'vue'
+import { watchEffect } from 'vue'
 
 export default {
   name: 'EventList',
@@ -18,7 +18,7 @@ export default {
   created() {
     watchEffect(() => {
       this.events = null
-      EventService.getEvents(2, this.page)
+      EventService.getEvents(3, this.page)
         .then(response => {
           this.events = response.data
           this.totalEvents = response.headers['x-total-count']
