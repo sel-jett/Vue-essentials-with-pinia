@@ -7,6 +7,7 @@ import Register from '../views/event/Register.vue'
 import Layout from '../views/event/Layout.vue'
 import NotFound from '../views/event/NotFound.vue'
 import NetworkError from '../views/event/NetworkError.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
