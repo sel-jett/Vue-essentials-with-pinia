@@ -6,7 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
   <div id="layout">
     <header>
       <div class="wrapper">
-        
+        <div id="flashMessage" v-if="GStore.flashMessage">
+          {{ GStore.flashMessage }}
+        </div>
         <nav>
           <RouterLink :to="{name: 'event-list'}">Events</RouterLink> |
           <RouterLink :to="{name: 'about'}">About</RouterLink>
@@ -18,7 +20,26 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
+<script>
+export default{
+  inject: ['GStore']
+}
+</script>
+
 <style scoped>
+@keyframes yellowfade {
+  from {
+    background: greenyellow;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+#flashMessage {
+  animation-name: yellowfade;
+  animation-duration: 3s;
+}
 #layout {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
