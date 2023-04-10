@@ -5,6 +5,7 @@ import AboutView from '../views/AboutView.vue'
 import Edit from '../views/event/Edit.vue'
 import Register from '../views/event/Register.vue'
 import Layout from '../views/event/Layout.vue'
+import NotFound from '../views/event/NotFound.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -18,6 +19,17 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutView,
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'notfound',
+      component: NotFound,
+    },
+    {
+      path: '/404/:resource',
+      name: '404Resource',
+      props: true,
+      component: NotFound,
     },
     {
       path: '/event/:id',

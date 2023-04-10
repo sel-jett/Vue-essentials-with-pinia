@@ -11,6 +11,11 @@ export default{
     created() {
         EventService.getEvent(this.id).then((response)=>{this.event=response.data}).catch((error)=>{
             console.log(error)
+
+            this.$router.push({
+                name: '404Resource',
+                params: {resource: 'event'}
+            })
         })
     }
 }
